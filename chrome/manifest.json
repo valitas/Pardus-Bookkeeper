@@ -1,15 +1,13 @@
 {
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+    "extension_pages": "script-src 'self'"
   },
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*.pardus.at/building_trade.php*"
-      ],
+      "matches": ["*://*.pardus.at/building_trade.php*"],
       "js": [
         "functions.js",
         "sector.js",
@@ -20,9 +18,7 @@
       "all_frames": true
     },
     {
-      "matches": [
-        "*://*.pardus.at/overview_buildings.php*"
-      ],
+      "matches": ["*://*.pardus.at/overview_buildings.php*"],
       "js": [
         "functions.js",
         "sector.js",
@@ -33,27 +29,17 @@
         "overview.js",
         "overviewbuildings.js"
       ],
-      "css": [
-        "bookkeeper.css"
-      ],
+      "css": ["bookkeeper.css"],
       "all_frames": true
     },
     {
-      "matches": [
-        "*://*.pardus.at/main.php*"
-      ],
-      "js": [
-        "nav.js"
-      ],
-      "css": [
-        "nav.css"
-      ],
+      "matches": ["*://*.pardus.at/main.php*"],
+      "js": ["nav.js"],
+      "css": ["nav.css"],
       "all_frames": true
     },
     {
-      "matches": [
-        "*://*.pardus.at/index_buildings.php*"
-      ],
+      "matches": ["*://*.pardus.at/index_buildings.php*"],
       "js": [
         "functions.js",
         "sector.js",
@@ -61,39 +47,22 @@
         "commodity.js",
         "bldgindex.js"
       ],
-      "css": [
-        "bookkeeper.css"
-      ],
+      "css": ["bookkeeper.css"],
       "all_frames": false
     },
     {
-      "matches": [
-        "*://*.pardus.at/building_trade_settings.php*"
-      ],
-      "js": [
-        "functions.js",
-        "building.js",
-        "buildingtradesettings.js"
-      ],
+      "matches": ["*://*.pardus.at/building_trade_settings.php*"],
+      "js": ["functions.js", "building.js", "buildingtradesettings.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.pardus.at/building_management.php*"],
+      "js": ["functions.js", "building.js", "sector.js", "management.js"],
+      "css": ["bookkeeper.css"],
       "all_frames": true
     },
     {
       "matches": [
-        "*://*.pardus.at/building_management.php*"
-      ],
-      "js": [
-        "functions.js",
-        "building.js",
-        "sector.js",
-        "management.js"
-      ],
-      "css": [
-        "bookkeeper.css"
-      ],
-      "all_frames": true
-    },
-    {
-	  "matches": [
         "*://*.pardus.at/planet_trade.php*",
         "*://*.pardus.at/starbase_trade.php*"
       ],
@@ -108,10 +77,7 @@
         "overlay.js",
         "starbasetrade.js"
       ],
-      "css": [
-        "nav.css",
-        "bookkeeper.css"
-      ],
+      "css": ["nav.css", "bookkeeper.css"],
       "all_frames": true
     }
   ],
@@ -119,11 +85,8 @@
   "manifest_version": 3,
   "minimum_chrome_version": "88",
   "name": "Pardus Bookkeeper",
-  "permissions": [
-    "notifications",
-    "storage"
-  ],
-  "version": "3.1.4",
+  "permissions": ["notifications", "storage"],
+  "version": "4",
   "icons": {
     "16": "icons/16.png",
     "24": "icons/24.png",
@@ -167,11 +130,12 @@
         "icons/remove.svg",
         "icons/removedim.svg",
         "html/bbox.html",
-		"inject/script.js"
+        "inject/buildingtrade.js",
+        "inject/main.js",
+        "inject/management.js",
+        "inject/starbasetrade.js"
       ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "matches": ["*://*.pardus.at/*"]
     }
   ],
   "action": {
@@ -183,7 +147,5 @@
     "default_popup": "popup.html",
     "browser_style": true
   },
-  "host_permissions": [
-    "*://*.pardus.at/*"
-  ]
+  "host_permissions": ["*://*.pardus.at/*"]
 }
