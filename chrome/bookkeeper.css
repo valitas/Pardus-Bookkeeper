@@ -1,299 +1,305 @@
 ﻿h1.bookkeeper img {
-	vertical-align: -2px;
-	margin-right: 4px;
+    vertical-align: -2px;
+    margin-right: 4px;
 }
 
 /* OVERVIEW */
 
 div.bookkeeper-overview {
-	border: outset 1px #A0B1C9;
-	padding: 5px;
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	width: max-content;
+    border: outset 1px #a0b1c9;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: max-content;
 }
 
 div.bookkeeper-overview > div {
-	flex: none;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	border-bottom: solid 1px #a1a1af;
+    flex: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid 1px #a1a1af;
 }
 
 div.bookkeeper-overview > div > input {
-	flex: auto;
-	border: none;
-	background: transparent;
-	outline: none;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
+    flex: auto;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 div.bookkeeper-overview > div > img {
-	flex: none;
-	width: 16px;
-	height: 16px;
-	cursor: pointer;
+    flex: none;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
 
 div.bookkeeper-overview > p {
-	color: #888;
-	text-align: left;
-	font-size: small;
-	margin: 8px 0;
+    color: #888;
+    text-align: left;
+    font-size: small;
+    margin: 8px 0;
 }
 
 div.bookkeeper-overview > table {
-	width: max-content;
-	flex: auto;
-	align-self: stretch;
-	border-collapse: collapse;
-	background: url('//static.pardus.at/img/stdhq/bg.gif');
+    width: max-content;
+    flex: auto;
+    align-self: stretch;
+    border-collapse: collapse;
+    background: url("//static.pardus.at/img/stdhq/bg.gif");
 }
 
 div.bookkeeper-overview > table th {
-	padding: 0 2px;
-	background: #a1a1af;
-	color: #00001c;
-	font-weight: bold;
-	text-align: center;
-	border-left: solid 2px #00001c;
-	border-right: solid 2px #00001c;
+    padding: 0 2px;
+    background: #a1a1af;
+    color: #00001c;
+    font-weight: bold;
+    text-align: center;
+    border-left: solid 2px #00001c;
+    border-right: solid 2px #00001c;
 }
 
 div.bookkeeper-overview > table th:first-child {
-	border-left: none;
+    border-left: none;
 }
 
 div.bookkeeper-overview > table th:last-child {
-	border-right: none;
+    border-right: none;
 }
 
 div.bookkeeper-overview > table th.c {
-	background: #3b3b49;
-	border: none;
+    background: #3b3b49;
+    border: none;
 }
 
 div.bookkeeper-overview > table th.sort {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 div.bookkeeper-overview > table th.asc::after {
-	content: "▲"
+    content: "▲";
 }
 
-div.bookkeeper-overview  > table th.dsc::after {
-	content: "▼"
+div.bookkeeper-overview > table th.dsc::after {
+    content: "▼";
 }
 
 /* keep this a bit wide or it starts to wrap */
 div.bookkeeper-overview > table th.time {
-	min-width: 5em;
+    min-width: 5em;
 }
 
 div.bookkeeper-overview > table th img {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 div.bookkeeper-overview > table tbody {
-	cursor: crosshair;
+    cursor: crosshair;
 }
 
 div.bookkeeper-overview > table > tbody > tr:hover {
-	background-color: #1a1a36;
+    background-color: #1a1a36;
 }
 
 div.bookkeeper-overview > table td {
-	border: solid 1px #1a1a36;
+    border: solid 1px #1a1a36;
 }
 
 div.bookkeeper-overview > table td.r,
 div.bookkeeper-overview > table td.c {
-	text-align: right;
+    text-align: right;
 }
 
 /* Colours for profit/deficit from the trade log screens */
 div.bookkeeper-overview > table td.lime {
-	color: #8AB797;
+    color: #8ab797;
 }
 div.bookkeeper-overview > table td.pink {
-	color: #B78A8E;
+    color: #b78a8e;
 }
 
 div.bookkeeper-overview > table td.red {
-	color: red;
-	font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
 div.bookkeeper-overview > table td.yellow {
-	color: yellow;
-	font-weight: bold;
+    color: yellow;
+    font-weight: bold;
 }
 
 div.bookkeeper-overview > table img.bookkeeper-small-button {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 
 /* OVERLAY */
-.bookkeeper-cbtn-conf, #bookkeeper-overlay {
-	position: fixed;
-	bottom: 8px;
-	right: 210px;
-	max-width: 78%;
-	max-height: 95%;
-	border: ridge 3px #99a;
-	border-radius: 8px;
-	box-shadow: 0 0 10px 5px rgba(0,0,0,0.75);
-	background: url('//static.pardus.at/img/stdhq/bgoutspace1.gif');
-	padding: 8px;
-	overflow: auto;
-	z-index: 2;
+.bookkeeper-cbtn-conf,
+#bookkeeper-overlay {
+    position: fixed;
+    bottom: 8px;
+    right: 210px;
+    max-width: 78%;
+    max-height: 95%;
+    border: ridge 3px #99a;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.75);
+    background: url("//static.pardus.at/img/stdhq/bgoutspace1.gif");
+    padding: 8px;
+    overflow: auto;
+    z-index: 2;
 }
 
 #bookkeeper-overlay > div.bookkeeper-overview {
-	border: none;
+    border: none;
 }
 
 /* STARBASE OVERLAY */
 
 #bookkeeper-ui.bookkeeper-starbasetrade {
-	position: absolute;
-	top: 0;
-	right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #bookkeeper-overlay.bookkeeper-starbasetrade {
-	bottom: unset;
-	top: 60px;
-	max-height: 85%;
+    bottom: unset;
+    top: 60px;
+    max-height: 85%;
 }
 
 .bookkeeper-small-button {
-	width: 16px;
-	height: 16px;
-	padding: 0;
-	margin: 0;
-	border: none;
-	cursor: pointer;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
 }
 
 /* These are used for the management quick buttons */
 div#bookkeeper-quick-buttons {
-	background: url('//static.pardus.at/img/stdhq/bg.gif');
-	border: 1px outset #A0B1C9;
-	margin-left: 3px;
-	margin-right: 3px;
-	margin-top: 12px;
-	padding: 5px;
+    background: url("//static.pardus.at/img/stdhq/bg.gif");
+    border: 1px outset #a0b1c9;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 12px;
+    padding: 5px;
 }
 
 div#bookkeeper-quick-buttons label {
-	display: inline-block;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 div#bookkeeper-quick-buttons > label:first-child {
-	background: #A1A1AF;
-	color: #00001C;
-	font-size: small;
-	font-weight: bold;
-	margin-bottom: 3px;
-	padding: 1px 0;
-	text-transform: none;
-	width: 100%;
+    background: #a1a1af;
+    color: #00001c;
+    font-size: small;
+    font-weight: bold;
+    margin-bottom: 3px;
+    padding: 1px 0;
+    text-transform: none;
+    width: 100%;
 }
 
 div#bookkeeper-quick-buttons > label:first-child > img {
-	margin-right: 3px;
-	vertical-align: -2px;
+    margin-right: 3px;
+    vertical-align: -2px;
 }
 
 div#bookkeeper-quick-buttons > button {
-	cursor: pointer;
-	display: inline-block;
-	height: 35px;
-	margin-bottom: 12px;
-	min-width: 150px;
-	width: 100%;
+    cursor: pointer;
+    display: inline-block;
+    height: 35px;
+    margin-bottom: 12px;
+    min-width: 150px;
+    width: 100%;
 }
 
 /* Toggle switches
    Adapted from https://www.w3schools.com/howto/howto_css_switch.asp */
 
 label.bookkeeper-switch {
-	position: relative;
-	display: inline-block;
-	width: 42px;
-	height: 24px;
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
 }
 
-label.bookkeeper-switch input { display:none; }
+label.bookkeeper-switch input {
+    display: none;
+}
 
 span.bookkeeper-slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #a1a1af;
-	transition: .3s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #a1a1af;
+    transition: 0.3s;
 }
 
 span.bookkeeper-slider:before {
-	position: absolute;
-	content: "";
-	height: 18px;
-	width: 18px;
-	left: 3px;
-	bottom: 3px;
-	background-color: white;
-	transition: .3s;
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
 }
 
 input:checked + span.bookkeeper-slider {
-	background-color: green;
+    background-color: green;
 }
 
 input:focus + span.bookkeeper-slider {
-	box-shadow: 0 0 1px green;
+    box-shadow: 0 0 1px green;
 }
 
 input:checked + span.bookkeeper-slider:before {
-	transform: translateX(18px);
+    transform: translateX(18px);
 }
 
 /* Rounded sliders */
 span.bookkeeper-slider.bookkeeper-round {
-	border-radius: 24px;
+    border-radius: 24px;
 }
 
 span.bookkeeper-slider.bookkeeper-round:before {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 /* Firefox workarounds, see dev notes. */
 
 @supports (-moz-appearance: none) {
-	div.bookkeeper-overview > table {
-		background: url('https://static.pardus.at/img/stdhq/bg.gif');
-	}
-	#bookkeeper-overlay {
-		background:
-		  url('https://static.pardus.at/img/stdhq/bgoutspace1.gif');
-	}
-	div#bookkeeper-quick-buttons {
-		background: url('https://static.pardus.at/img/stdhq/bg.gif');
-	}
+    div.bookkeeper-overview > table {
+        background: url("https://static.pardus.at/img/stdhq/bg.gif");
+    }
+    #bookkeeper-overlay {
+        background: url("https://static.pardus.at/img/stdhq/bgoutspace1.gif");
+    }
+    div#bookkeeper-quick-buttons {
+        background: url("https://static.pardus.at/img/stdhq/bg.gif");
+    }
 }
 
-@supports (not ((width: min-content) and (width: max-content)))
-	  and (width: -moz-min-content) and (width: -moz-max-content) {
-	div.bookkeeper-overview { width: -moz-min-content }
-	div.bookkeeper-overview > table { width: -moz-max-content }
+@supports (not ((width: min-content) and (width: max-content))) and
+    (width: -moz-min-content) and (width: -moz-max-content) {
+    div.bookkeeper-overview {
+        width: -moz-min-content;
+    }
+    div.bookkeeper-overview > table {
+        width: -moz-max-content;
+    }
 }
