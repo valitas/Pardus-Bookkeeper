@@ -310,40 +310,32 @@ OpHandlers.queryTicksLeft = function (message, sendResponse) {
 // This is magic.
 
 OpHandlers.injectMeHard = function (message, sendResponse, sender) {
-    var scripts, stylesheets, tabId, frameId;
+    let results = [];
+    let injectionTarget = { tabId: sender.tab.id, frameIds: [sender.frameId] };
 
-    tabId = sender.tab.id;
-    frameId = sender.frameId;
-    stylesheets = message.stylesheets || [];
-    scripts = message.scripts || [];
+    console.log(`injection target: ${JSON.stringify(injectionTarget)}`);
 
-    injectStylesheet();
+    if (message.stylesheets) {
+        results.push(
+            chrome.scripting.insertCSS({
+                target: injectionTarget,
+                files: message.stylesheets,
+            }),
+        );
+    }
+
+    if (message.scripts) {
+        results.push(
+            chrome.scripting.executeScript({
+                target: injectionTarget,
+                files: message.scripts,
+            }),
+        );
+    }
+
+    Promise.all(results).then(() => sendResponse());
 
     return true;
-
-    function injectStylesheet() {
-        var stylesheet;
-        if (stylesheets.length > 0) {
-            stylesheet = stylesheets.shift();
-            chrome.tabs.insertCSS(
-                tabId,
-                { file: stylesheet, frameId: frameId },
-                injectStylesheet,
-            );
-        } else injectScript();
-    }
-
-    function injectScript() {
-        var script;
-        if (scripts.length > 0) {
-            script = scripts.shift();
-            chrome.tabs.executeScript(
-                tabId,
-                { file: script, frameId: frameId },
-                injectScript,
-            );
-        } else sendResponse();
-    }
 };
 
 // Instances of Building represent Pardus buildings.

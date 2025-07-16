@@ -323,6 +323,6 @@
             ],
         };
         // Empty function is actually needed.
-        chrome.runtime.sendMessage(op, function () {});
+        chrome.runtime.sendMessage(op, () => {});
     }
 })();

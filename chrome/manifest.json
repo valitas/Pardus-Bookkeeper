@@ -85,7 +85,7 @@
   "manifest_version": 3,
   "minimum_chrome_version": "88",
   "name": "Pardus Bookkeeper",
-  "permissions": ["notifications", "storage"],
+  "permissions": ["notifications", "scripting", "storage"],
   "version": "4",
   "icons": {
     "16": "icons/16.png",
