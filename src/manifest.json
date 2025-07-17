@@ -1,6 +1,12 @@
 {
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'"
+  "action": {
+    "default_icon": {
+      "16": "icons/16.png",
+      "64": "icons/64.png"
+    },
+    "default_title": "Pardus Bookkeeper",
+    "default_popup": "popup.html",
+    "browser_style": true
   },
   "background": {
     "service_worker": "background.js"
@@ -81,12 +87,11 @@
       "all_frames": true
     }
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'"
+  },
   "description": "User trade interface enhancements for the online game Pardus",
-  "manifest_version": 3,
-  "minimum_chrome_version": "88",
-  "name": "Pardus Bookkeeper",
-  "permissions": ["notifications", "scripting", "storage"],
-  "version": "4",
+  "host_permissions": ["*://*.pardus.at/*"],
   "icons": {
     "16": "icons/16.png",
     "24": "icons/24.png",
@@ -94,9 +99,14 @@
     "64": "icons/64.png",
     "128": "icons/128.png"
   },
+  "manifest_version": 3,
+  "minimum_chrome_version": "88",
+  "name": "Pardus Bookkeeper",
   "options_ui": {
     "page": "options.html"
   },
+  "permissions": ["notifications", "scripting", "storage"],
+  "version": "4",
   "web_accessible_resources": [
     {
       "resources": [
@@ -137,15 +147,5 @@
       ],
       "matches": ["*://*.pardus.at/*"]
     }
-  ],
-  "action": {
-    "default_icon": {
-      "16": "icons/16.png",
-      "64": "icons/64.png"
-    },
-    "default_title": "Pardus Bookkeeper",
-    "default_popup": "popup.html",
-    "browser_style": true
-  },
-  "host_permissions": ["*://*.pardus.at/*"]
+  ]
 }
