@@ -1,100 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
- <head>
-  <meta charset="UTF-8">
-  <title>Pardus Bookkeeper Options</title>
-  <link rel="stylesheet" type="text/css" href="options.css">
-  <script type="text/javascript" src="options.js"></script>
- </head>
- <body>
-  <section>
-   <h2>Options</h2>
-   
-   <p>
-    <input type="checkbox" id="bookkeeper-enableAutoKey" />
-	<label for="bookkeeper-enableAutoKey">Enable keypress auto sell/buy with: </label>
-	<input type="text" id="bookkeeper-autoKey" size="1" value="g" disabled=disabled />
-	<br />
-    <input type="checkbox" id="bookkeeper-enablePSB" checked=checked />
-	<label for="bookkeeper-enablePSB">Enable SB/Planets tracking</label>
-	<br />
-    <input type="checkbox" id="bookkeeper-OenableOwnBuildings" checked=checked />
-	<label for="bookkeeper-enableOwnBuildings">Enable tracking of own buildings in Orion</label>
-	<br />
-    <input type="checkbox" id="bookkeeper-AenableOwnBuildings" checked=checked />
-	<label for="bookkeeper-enableOwnBuildings">Enable tracking of own buildings in Artemis</label>
-	<br />
-    <input type="checkbox" id="bookkeeper-PenableOwnBuildings" checked=checked />
-	<label for="bookkeeper-enableOwnBuildings">Enable tracking of own buildings in Pegasus</label>
-   <p>
-  </section>
- 
-  
-  <section>
-   <h2>Storage</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pardus Bookkeeper Options</title>
+    <link rel="stylesheet" type="text/css" href="options.css" />
+    <script type="text/javascript" src="options.js"></script>
+  </head>
+  <body>
+    <section>
+      <h2>Options</h2>
 
-   <p>
-    <progress id="bookkeeper-storage-gauge" max="1"></progress>
-	<br/>
-    Using
-    <span id="bookkeeper-item-usage"></span> out of
-    <span id="bookkeeper-item-quota"></span> items;
-    <span id="bookkeeper-byte-usage"></span> out of
-    <span id="bookkeeper-byte-quota"></span> bytes.
-   </p>
-	<div class="progress progress-stacked">
-	 <span class="orion" id="bookkeeper-storage-orion"></span>
-     <span class="artemis" id="bookkeeper-storage-artemis"></span>
-     <span class="pegasus" id="bookkeeper-storage-pegasus"></span>
-     <span class="total" id="bookkeeper-storage-total"></span>
-    </div>
-	<div>
-	<span class="orion" style="width:15px;"></span> Orion
-	<span class="artemis" style="width:15px;"></span> Artemis
-	<span class="pegasus" style="width:15px;"></span> Pegasus
-	<span class="total" style="width:15px;"></span> Other
-	</div>
-   <p><button id="bookkeeper-clear-button">Clear storage</button>
-   <span style="display:inline-block; width: 15px;"></span>
-   <button id="bookkeeper-clear-button-O">Clear Orion</button>
-   <button id="bookkeeper-clear-button-A">Clear Artemis</button>
-   <button id="bookkeeper-clear-button-P">Clear Pegasus</button></p>
-  </section>
+      <p>
+        <input type="checkbox" id="bookkeeper-enableAutoKey" />
+        <label for="bookkeeper-enableAutoKey"
+          >Enable keypress auto sell/buy with:
+        </label>
+        <input
+          type="text"
+          id="bookkeeper-autoKey"
+          size="1"
+          value="g"
+          disabled="disabled"
+        />
+        <br />
+        <input type="checkbox" id="bookkeeper-enablePSB" checked="checked" />
+        <label for="bookkeeper-enablePSB">Enable SB/Planets tracking</label>
+        <br />
+        <input
+          type="checkbox"
+          id="bookkeeper-OenableOwnBuildings"
+          checked="checked"
+        />
+        <label for="bookkeeper-enableOwnBuildings"
+          >Enable tracking of own buildings in Orion</label
+        >
+        <br />
+        <input
+          type="checkbox"
+          id="bookkeeper-AenableOwnBuildings"
+          checked="checked"
+        />
+        <label for="bookkeeper-enableOwnBuildings"
+          >Enable tracking of own buildings in Artemis</label
+        >
+        <br />
+        <input
+          type="checkbox"
+          id="bookkeeper-PenableOwnBuildings"
+          checked="checked"
+        />
+        <label for="bookkeeper-enableOwnBuildings"
+          >Enable tracking of own buildings in Pegasus</label
+        >
+      </p>
 
-  <section>
-   <h2>About</h2>
+      <p></p>
+    </section>
 
-   <p>Version <span id="bookkeeper-version"></span></p>
+    <section>
+      <h2>Storage</h2>
 
-   <p>
-    Please report bugs and request enhancements in the
-    <a href="https://github.com/BartKieviet/Bookkeeper"
-       target="_blank">GitHub repository</a>.
-   </p>
+      <p>
+        <progress id="bookkeeper-storage-gauge" max="1"></progress>
+        <br />
+        Using
+        <span id="bookkeeper-item-usage"></span> out of
+        <span id="bookkeeper-item-quota"></span> items;
+        <span id="bookkeeper-byte-usage"></span> out of
+        <span id="bookkeeper-byte-quota"></span> bytes.
+      </p>
+      <div class="progress progress-stacked">
+        <span class="orion" id="bookkeeper-storage-orion"></span>
+        <span class="artemis" id="bookkeeper-storage-artemis"></span>
+        <span class="pegasus" id="bookkeeper-storage-pegasus"></span>
+        <span class="total" id="bookkeeper-storage-total"></span>
+      </div>
+      <div>
+        <span class="orion" style="width: 15px"></span> Orion
+        <span class="artemis" style="width: 15px"></span> Artemis
+        <span class="pegasus" style="width: 15px"></span> Pegasus
+        <span class="total" style="width: 15px"></span> Other
+      </div>
+      <p>
+        <button id="bookkeeper-clear-button">Clear storage</button>
+        <span style="display: inline-block; width: 15px"></span>
+        <button id="bookkeeper-clear-button-O">Clear Orion</button>
+        <button id="bookkeeper-clear-button-A">Clear Artemis</button>
+        <button id="bookkeeper-clear-button-P">Clear Pegasus</button>
+      </p>
+    </section>
 
-   <p>
-    Copyright © 2011-2017 the Pardus Bookkeeper contributors.  This software is
-    free to use and modify under the terms of the
-    <a href="https://raw.githubusercontent.com/BartKieviet/Bookkeeper/sync/LICENSE.txt"
-	     target="_blank">MIT License</a>.
-   </p>
+    <section>
+      <h2>About</h2>
 
-   <p>DISCLAIMER: This software is without warranty.</p>
+      <p>Version <span id="bookkeeper-version"></span></p>
 
-   <p>
-    Icon by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
-    <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>,
-    used under the
-    <a href="http://creativecommons.org/licenses/by/3.0/"
-       title="Creative Commons BY 3.0"
-       target="_blank">Creative Commons Attribution 3.0 Unported</a>
-    license.
-   </p>
+      <p>
+        Please report bugs and request enhancements in the
+        <a href="https://github.com/BartKieviet/Bookkeeper" target="_blank"
+          >GitHub repository</a
+        >.
+      </p>
 
-   <p>
-    Pardus is Copyright © 2003-2017 Bayer &amp; Szell OG. The authors of this
-    software are not affiliated with Bayer &amp; Szell OG.
-   </p>
-  </section>
- </body>
+      <p>
+        Copyright © 2011-2017 the Pardus Bookkeeper contributors. This software
+        is free to use and modify under the terms of the
+        <a
+          href="https://raw.githubusercontent.com/BartKieviet/Bookkeeper/sync/LICENSE.txt"
+          target="_blank"
+          >MIT License</a
+        >.
+      </p>
+
+      <p>DISCLAIMER: This software is without warranty.</p>
+
+      <p>
+        Icon by
+        <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+        from
+        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a
+        >, used under the
+        <a
+          href="http://creativecommons.org/licenses/by/3.0/"
+          title="Creative Commons BY 3.0"
+          target="_blank"
+          >Creative Commons Attribution 3.0 Unported</a
+        >
+        license.
+      </p>
+
+      <p>
+        Pardus is Copyright © 2003-2017 Bayer &amp; Szell OG. The authors of
+        this software are not affiliated with Bayer &amp; Szell OG.
+      </p>
+    </section>
+  </body>
 </html>
