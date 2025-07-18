@@ -3,9 +3,6 @@
 // tag etc.  And it runs in the extension's context, so it has access to all
 // chrome.* APIs.
 
-// We have access to Building because bbox.html loads it before us.
-var Building;
-
 document.addEventListener( 'DOMContentLoaded', onDOM, false );
 
 // End of script execution.

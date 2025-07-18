@@ -1,7 +1,7 @@
 "use strict";
 
 // From other scripts injected
-var Universe, Building;
+var Universe;
 
 var previewSettingKey = "previewAutoTransfer";
 var universe = Universe.fromDocument(document);

@@ -1,5 +1,5 @@
 // From other scripts:
-var Building, Commodities, CalendarNames, Sector, SortableTable, Filter;
+var CalendarNames, SortableTable;
 
 
 // Overview is a UI component that contains a Filter and a SortableTable, and
@@ -349,10 +349,10 @@ var COLUMN_SPECS = {
 
 	level: {
 		header: simpleHeader('Lvl'), //this.options.psbFlag ? simpleHeader( 'population') : simpleHeader( 'Lvl' ),
-		cell: rCell( function( b ) { 
+		cell: rCell( function( b ) {
 					let rvalue = '?';
-					!isNaN(b.level) ? rvalue = b.level.toLocaleString( 'en' ) : null; 
-					return rvalue 
+					!isNaN(b.level) ? rvalue = b.level.toLocaleString( 'en' ) : null;
+					return rvalue
 					} ),
 		sortId: 'level',
 		sort: function( a, b ) { return a.level - b.level; },
@@ -361,10 +361,10 @@ var COLUMN_SPECS = {
 
 	pop: {
 		header: simpleHeader('Pop'),
-		cell: rCell( function( b ) { 
+		cell: rCell( function( b ) {
 					let rvalue = '?';
-					b.level ? rvalue = b.level.toLocaleString( 'en' ) : null; 
-					return rvalue 
+					b.level ? rvalue = b.level.toLocaleString( 'en' ) : null;
+					return rvalue
 					} ),
 		sortId: 'level',
 		sort: function( a, b ) { return a.level - b.level; },
@@ -477,10 +477,10 @@ function ticksToDowngradeCell( b, td ) {
 	// Find the first number in this sequence that is less than or equal to
 	// the current population.  These of course are the thresholds for the
 	// 4th, 3rd, and 2nd ring, and the final downgrade.
-    // For NPC bases the limits are the div limits. See manual. If the limit 
+    // For NPC bases the limits are the div limits. See manual. If the limit
     // is below the div limit, threshold becomes undefined.
     let popLimit = [];
-    
+
     switch( b.getTypeShortName() ) {
         case 'P': popLimit = [ 30000, 15000, 5000, 500 ]; break;
         case 'M': popLimit = [ 100000 ]; break;
@@ -491,16 +491,16 @@ function ticksToDowngradeCell( b, td ) {
         case 'G': popLimit = [ 15000 ]; break;
         default: return;
     }
-    
+
 	let threshold = popLimit.find(
 		function(t) { return t <= population; } );
-    
+
 	// The number of ticks for the base to shrink from the size it'll grown
 	// to, to the next downgrade threshold. Becomes NaN if pop < threshold.
 	//
 	// Kahldar is too smart.
 	let n = Math.ceil( Math.log(threshold/grownPop) / Math.log(15/16) );
-    
+
     isNaN( n ) ? null : td.textContent = ticksLeft + n;
 	td.className = 'r';
 }

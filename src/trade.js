@@ -1,7 +1,7 @@
 // This is a content script.  It runs on building_trade.php.
 
 // From other sources
-var Universe, Sector, Building;
+var Universe;
 
 //Global variables.
 var universe, configured, userloc, buildingKey, time, pageData;

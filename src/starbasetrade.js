@@ -2,8 +2,6 @@
 
 // From other files:
 var Overlay,
-    Building,
-    Sector,
     Universe = Universe.fromDocument(document);
 
 // Globals
@@ -409,6 +407,7 @@ function trackPSB(data) {
 }
 
 function setTrackBtn(userloc, data) {
+    console.log('in setTrackBtn');
     var trackBtn = document.getElementById("bookkeeper-trackBtn");
     if (!trackBtn) {
         var middleNode = document.getElementById("quickButtonsTbl");

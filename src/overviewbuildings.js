@@ -1,7 +1,7 @@
 // This is a content script.  It runs on overview_buildings.php.
 
 // From other files
-var Universe, Building, Commodities, Sector, Overview, Options;
+var Universe, Overview, Options;
 
 // Global used here XXX K you were right, Universe shouldn't be an object.
 var universe = Universe.fromDocument( document );
@@ -36,7 +36,7 @@ function setup() {
 
 	function onOwnBuildingsAdded( universeList ) {
 		overview = new Overview( universe.key, document );
-		
+
 		if ( Options[ 'enablePSB' ] ) {
 			overview.configure( universeList );
 			overviewsb = new Overview( universe.key, document, { psbFlag : true } );
@@ -136,7 +136,7 @@ function parseBuildingRow( tr ) {
 		// No MOs yet (type 17)
 		if ( r.typeId === undefined || r.typeId === 17 )
 			return null;
-		
+
 		// Get position from col 1
 		e = xpr.snapshotItem( 1 );
 		m = /(.*): \d+,\d/.exec( e.textContent );

@@ -1,9 +1,6 @@
 // This is a content script, runs index_buildings.php
 
-var Universe,    // from universe.js
-    Sector,      // from sector.js
-    Building,    // from building.js
-    Commodities; // from commodity.js
+var Universe;    // from universe.js
 
 var CalendarNames, ToggleMaker; // from functions.js
 
@@ -31,19 +28,19 @@ function setup() {
 		let pPrice = parseInt( pImg[1].nextSibling.textContent );
 		let pUpkeep = Building.getBaseUpkeep( pTypeId );
 		let pComm = Commodities.getId( pImg[ 0 ].src.split( /\/([^/]+)\.png$/ )[ 1 ] );
-		let pBase = { 
+		let pBase = {
 			1: 200,
 			2: 120,
-			3: 160 
+			3: 160
 		} // All thrives on these three
-		
+
 		// pPrice is rounded, pToSell is not.
 		let pPriceMax = pPrice + 0.4, pPriceMin = pPrice - 0.5;
-		
+
 		let popMin = ( pToSell / ( Math.log10( pPriceMax / pBase[ pComm ] ) + 1 ) - 20 ) / ( 20 * pUpkeep [ pComm ] ) ;
 		let popMax = ( pToSell / ( Math.log10( pPriceMin / pBase[ pComm ] ) + 1 ) - 20 ) / ( 20 * pUpkeep [ pComm ] ) ;
 		// The derivation of the above formula is left as an exercise for the reader ( https://abstrusegoose.com/12 )
-		
+
 		// Right, we got the population estimate. Time to display it.
 		let tab = document.createElement( 'table' );
 		let tr = document.createElement( 'tr' );
@@ -425,7 +422,7 @@ function trackBuilding( entry ) {
 		list = data[ universe.key ];
 		if ( !list )
 			list = [];
-		
+
 		index = list.indexOf( entry.loc );
 		if ( index === -1 )
 			list.push( entry.loc );
@@ -443,11 +440,11 @@ function trackAllBuildings( data ) {
 	var list = data[ universe.key ];
 	if ( !list )
 		list = [];
-	
+
 	for ( key in pageData ) {
 		if (!pageData[ key ].tracked) {
 			entry = pageData[ key ];
-			
+
 			if ( !entry.building ) {
 				entry.building = new Building( entry.loc, sectorId );
 				updateBuildingFromEntry( entry );
