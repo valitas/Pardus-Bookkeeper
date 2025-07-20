@@ -1,8 +1,5 @@
 // This is a content script.  It runs on building_trade.php.
 
-// From other sources
-var Universe;
-
 //Global variables.
 var universe, configured, userloc, buildingKey, time, pageData;
 
@@ -35,6 +32,7 @@ function onGameMessage(event) {
     time = data.time;
     buildingKey = universe.key + userloc;
     pageData = parsePage();
+    // XXX this caused an error when pageData was null (or maybe data was null)? how did this happen?
     pageData.amount = data.amount;
     pageData.buyAtPrices = data.player_buy_price;
     pageData.sellAtPrices = data.player_sell_price;

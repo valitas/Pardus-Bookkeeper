@@ -1,7 +1,7 @@
 // This is a content script.  It runs on overview_buildings.php.
 
 // From other files
-var Universe, Overview, Options;
+var Overview, Options;
 
 // Global used here XXX K you were right, Universe shouldn't be an object.
 var universe = Universe.fromDocument( document );

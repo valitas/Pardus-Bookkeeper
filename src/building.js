@@ -441,7 +441,9 @@ class Building {
     // Get an array of commodity ids that buildings of the given type consume.
     static getUpkeepCommodities(typeId) {
         const t = this.getType(typeId);
-        return t !== undefined ? Object.keys(t.bu).map(parseInt) : undefined;
+        return t !== undefined
+            ? Object.keys(t.bu).map((k) => parseInt(k))
+            : undefined;
     }
 
     // Get an array of commodity ids that buildings of the given type consume.
@@ -449,7 +451,9 @@ class Building {
     // things not listed by this.
     static getProductionCommodities(typeId) {
         const t = this.getType(typeId);
-        return t !== undefined ? Object.keys(t.bp).map(parseInt) : undefined;
+        return t !== undefined
+            ? Object.keys(t.bp).map((k) => parseInt(k))
+            : undefined;
     }
 
     // Get the "normal" upkeep of a building of the given type and level, before
@@ -853,7 +857,9 @@ class Building {
     // If remaining ticks were unknown at the time the building was last
     // updated, this function will return undefined.
     ticksNow(now) {
-        if (this.ticksLeft === undefined) return undefined;
+        if (this.ticksLeft === undefined) {
+            return undefined;
+        }
 
         return Math.max(
             0,
@@ -945,9 +951,9 @@ class Building {
     isFullyStocked() {
         return (
             this.buying.length > 0 &&
-            this.getUpkeepCommodities().find(function (commId) {
-                return this[commId] > 0;
-            }, this.buying) === undefined
+            this.getUpkeepCommodities().find(
+                (commId) => this.buying[commId] > 0,
+            ) === undefined
         );
     }
 

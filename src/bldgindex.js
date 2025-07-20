@@ -1,9 +1,5 @@
 // This is a content script, runs index_buildings.php
 
-var Universe;    // from universe.js
-
-var CalendarNames, ToggleMaker; // from functions.js
-
 // These are initialised in setup() and the callbacks triggered from there.
 
 var universe, sectorId, now, pageData;
@@ -372,7 +368,6 @@ function updateBuildingFromEntry( entry ) {
 	building.setType( entry.typeId );
 	building.setTime( now );
 	building.setOwner( entry.owner );
-	console.log(building.typeId)
 	if (!(building.typeId == 17)) // Grid setting is not taken into account in the b-index.
 		building.setTicksLeft( entry.ticksLeft );
 	building.setSelling( entry.selling );

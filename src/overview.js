@@ -1,5 +1,5 @@
 // From other scripts:
-var CalendarNames, SortableTable;
+var SortableTable;
 
 
 // Overview is a UI component that contains a Filter and a SortableTable, and

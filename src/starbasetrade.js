@@ -1,8 +1,8 @@
 // This is a content script, it runs on starbase_trade.php and planet_trade.php.
 
 // From other files:
-var Overlay,
-    Universe = Universe.fromDocument(document);
+var Overlay;
+const universe = Universe.fromDocument(document);
 
 // Globals
 var configured, userloc, time, psbCredits;
@@ -88,7 +88,7 @@ function setup() {
 
     //Add fuel option.
     chrome.storage.sync.get(
-        [Universe.key + "Fuel", Universe.key + "FuelCB"],
+        [universe.key + "Fuel", universe.key + "FuelCB"],
         addFuelInput.bind(middleNode),
     );
     chrome.storage.sync.get(["BookkeeperOptions"], addKeyPress);
@@ -290,11 +290,11 @@ function addFuelInput(amount) {
     fuelInputCB.type = "checkbox";
     fuelInputCB.title = "Sell surplus fuel";
 
-    if (amount[Universe.key + "Fuel"] !== undefined) {
-        fuelInput.value = amount[Universe.key + "Fuel"];
+    if (amount[universe.key + "Fuel"] !== undefined) {
+        fuelInput.value = amount[universe.key + "Fuel"];
     }
-    if (amount[Universe.key + "FuelCB"] !== undefined) {
-        fuelInputCB.checked = amount[Universe.key + "FuelCB"];
+    if (amount[universe.key + "FuelCB"] !== undefined) {
+        fuelInputCB.checked = amount[universe.key + "FuelCB"];
     }
     this.insertBefore(fuelInputCB, this.children[1]);
     this.insertBefore(fuelInput, fuelInputCB);
@@ -302,13 +302,13 @@ function addFuelInput(amount) {
     this.insertBefore(document.createElement("br"), fuelInputLabel);
     fuelInput.addEventListener("change", function () {
         var storedata = {};
-        storedata[Universe.key + "Fuel"] =
+        storedata[universe.key + "Fuel"] =
             document.getElementById("bookkeeper-fuel").value;
         chrome.storage.sync.set(storedata);
     });
     fuelInputCB.addEventListener("click", function () {
         var storedata = {};
-        storedata[Universe.key + "FuelCB"] =
+        storedata[universe.key + "FuelCB"] =
             document.getElementById("bookkeeper-fuel-cb").checked;
         chrome.storage.sync.set(storedata);
     });
@@ -401,13 +401,12 @@ function trackPSB(data) {
     let Options = data["BookkeeperOptions"];
     if (!Options || !Options["enablePSB"]) return;
     chrome.storage.sync.get(
-        [Universe.key, Universe.key + userloc],
+        [universe.key, universe.key + userloc],
         setTrackBtn.bind(null, userloc),
     );
 }
 
 function setTrackBtn(userloc, data) {
-    console.log('in setTrackBtn');
     var trackBtn = document.getElementById("bookkeeper-trackBtn");
     if (!trackBtn) {
         var middleNode = document.getElementById("quickButtonsTbl");
@@ -421,19 +420,19 @@ function setTrackBtn(userloc, data) {
 
     if (
         Object.keys(data).length === 0 ||
-        data[Universe.key].indexOf(userloc) === -1
+        data[universe.key].indexOf(userloc) === -1
     ) {
         value = "Track";
     } else {
         value = "Untrack";
-        data[Universe.key + userloc] = parsePSBPage().toStorage();
+        data[universe.key + userloc] = parsePSBPage().toStorage();
         chrome.storage.sync.set(data);
     }
 
     trackBtn.textContent = value;
     trackBtn.addEventListener("click", function () {
         chrome.storage.sync.get(
-            [Universe.key, Universe.key + userloc],
+            [universe.key, universe.key + userloc],
             trackToggle.bind(trackBtn, userloc),
         );
     });
@@ -444,11 +443,11 @@ function trackToggle(userloc, data) {
         this.textContent = "Untrack";
 
         if (Object.keys(data).length === 0) {
-            data[Universe.key] = [userloc];
+            data[universe.key] = [userloc];
         } else {
-            data[Universe.key].push(userloc);
+            data[universe.key].push(userloc);
         }
-        data[Universe.key + userloc] = parsePSBPage().toStorage();
+        data[universe.key + userloc] = parsePSBPage().toStorage();
         chrome.storage.sync.set(data);
     } else {
         this.textContent = "Track";
@@ -457,7 +456,7 @@ function trackToggle(userloc, data) {
 }
 
 function PSBremoveStorage(loc) {
-    var ukey = Universe.key;
+    var ukey = universe.key;
 
     loc = parseInt(loc);
     if (isNaN(loc)) return;
