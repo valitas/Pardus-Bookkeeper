@@ -271,7 +271,7 @@ class Filter {
         }
 
         function plural(s) {
-            const p = this.#plurals[s];
+            const p = Filter.#plurals[s];
             if (p) {
                 return p;
             }
