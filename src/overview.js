@@ -1,10 +1,5 @@
-// From other scripts:
-var SortableTable;
-
-
 // Overview is a UI component that contains a Filter and a SortableTable, and
 // mediates the interaction between those.
-
 
 var Overview = (function() {
 

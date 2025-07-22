@@ -19,14 +19,13 @@ const BLDGTILE_XPATH = document.createExpression(
 // will be ""navAjax(142080)"; if it's disabled, it will be "nav(142080)".
 const TILEID_RX = /^nav(?:Ajax)?\((\d+)\)$/;
 
+// Global state of the nav page
 var bldgTileCache,
     ticksToggle,
     ticksEnabled,
-    bbox,
     userloc,
     overviewToggle,
-    overview,
-    resizeRunning;
+    overview;
 
 chrome.storage.local.get("navticks", configure);
 
@@ -51,23 +50,21 @@ function configure(data) {
 
     const ui = document.createElement("div");
     ui.id = "bookkeeper-ui";
-    let e = document.createElement("img");
-    e.title = "Pardus Bookkeeper";
-    e.src = chrome.runtime.getURL("icons/16.png");
-    ui.appendChild(e);
-    e = document.createElement("button");
-    e.id = "bookkeeper-navticks-switch";
-    e.textContent = "TICKS";
-    e.addEventListener("click", onToggleTicks, false);
-    ticksToggle = e;
-    ui.appendChild(e);
+    const img = document.createElement("img");
+    img.title = "Pardus Bookkeeper";
+    img.src = chrome.runtime.getURL("icons/16.png");
+    ui.appendChild(img);
+    ticksToggle = document.createElement("button");
+    ticksToggle.id = "bookkeeper-navticks-switch";
+    ticksToggle.textContent = "TICKS";
+    ticksToggle.addEventListener("click", onToggleTicks, false);
+    ui.appendChild(ticksToggle);
 
-    e = document.createElement("button");
-    e.id = "bookkeeper-overview-toggle";
-    e.textContent = "OPEN";
-    e.addEventListener("click", onToggleOverview, false);
-    overviewToggle = e;
-    ui.appendChild(e);
+    overviewToggle = document.createElement("button");
+    overviewToggle.id = "bookkeeper-overview-toggle";
+    overviewToggle.textContent = "OPEN";
+    overviewToggle.addEventListener("click", onToggleOverview, false);
+    ui.appendChild(overviewToggle);
 
     // Wish we could insert directly in the cargo box, but partial refresh
     // does nasty things to it.
